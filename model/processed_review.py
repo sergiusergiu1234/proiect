@@ -4,7 +4,6 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
-
 class ProcessedReview(Base):
     __tablename__ = 'processed_review'
 
@@ -17,6 +16,5 @@ class ProcessedReview(Base):
     llm_sentiment: Mapped[str] = mapped_column(String(50))
     dl_sentiment: Mapped[str] = mapped_column(String(50), nullable=True)
     
-    # One-to-one relationship with Review
     review = relationship("Review", back_populates="processed_review")
     

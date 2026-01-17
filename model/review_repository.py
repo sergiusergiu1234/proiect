@@ -1,5 +1,5 @@
 
-from typing import List, Optional, Sequence
+from typing import Optional, Sequence
 from datetime import datetime
 from sqlalchemy.orm import Session
 from sqlalchemy import select
@@ -17,7 +17,6 @@ class ReviewRepository:
                stars: float,
                text: str,
                date: datetime,
-            #    business_id: str
                ):
         """Create new review."""
         try:
@@ -26,7 +25,6 @@ class ReviewRepository:
                 stars=stars,
                 text=text,
                 date=date,
-                # business_id=business_id
             )
             self.session.add(review)
             self.session.commit()
@@ -39,11 +37,9 @@ class ReviewRepository:
             return None
 
     def get_by_review_id(self, review_id: str) -> Optional[Review]:
-        """Get a review by review_id."""
         stmt = select(Review).where(Review.review_id == review_id)
         return self.session.execute(stmt).scalar_one_or_none()
 
     def get_all(self, limit: int = 100, offset: int = 0) -> Sequence[Review]:
-        """Get all reviews with pagination."""
         stmt = select(Review).limit(limit).offset(offset)
         return self.session.execute(stmt).scalars().all()
