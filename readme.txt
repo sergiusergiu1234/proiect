@@ -24,7 +24,3 @@ docker-compose up -d
 ### genereaza tablele in baza de date
 python model/init_db.py
 
-### ca sa rulezi programu
-```shell
-python orchestration.py
-```

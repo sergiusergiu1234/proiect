@@ -26,5 +26,3 @@ def load_dataset(directory_path: str, row_count: int | None= None, json_file_nam
 if __name__ == "__main__":
     path = download_dataset()
     print(f"Extracted dataset to {path}")
-    # reviews_df = load_dataset(directory_path=path, json_file_name='yelp_academic_dataset_review.json')
-    # print(reviews_df.head())

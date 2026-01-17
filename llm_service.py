@@ -3,8 +3,6 @@ from haystack.components.generators import OpenAIGenerator
 from haystack.utils import Secret
 from dotenv import load_dotenv
 
-
-
 load_dotenv()
 
 class llm_service:
