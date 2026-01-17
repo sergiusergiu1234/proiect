@@ -15,8 +15,4 @@ class Review(Base):
     stars: Mapped[float]
     text: Mapped[str] = mapped_column(Text)
     date: Mapped[datetime] = mapped_column(DateTime)
-
-    # business_id: Mapped[str] = mapped_column(String(50), ForeignKey("business.business_id"))
-    # business = relationship("Business", back_populates="reviews")
-
     processed_review = relationship("ProcessedReview", back_populates="review", uselist=False)
